@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "sf";
+option java_outer_classname = "Productservice";
+option objc_class_prefix = "HLW";
+
+package sf;
+
+service ProductserviceService {
+  rpc send (ProductserviceRequest) returns (ProductserviceReply) {}
+}
+
+message ProductserviceRequest {
+  string name = 1;
+}
+
+message ProductserviceReply {
+  string message = 1;
+}
