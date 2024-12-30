@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "sf";
+option java_outer_classname = "AccessControl";
+option objc_class_prefix = "HLW";
+
+package sf;
+
+service UserService {
+  rpc createUser(CreateUserRequest) returns (UserResponse);
+  rpc getUser(GetUserRequest) returns (UserResponse);
+  rpc changeUser(ChangeUserRequest) returns (UserResponse);
+  rpc deleteUser(DeleteUserRequest) returns (UserResponse);
+}
+
+message CreateUserRequest {
+  string name = 1;
+  string email = 2;
+  int32 age = 3;
+}
+
+message GetUserRequest {
+  string user_id = 1;
+}
+
+message ChangeUserRequest {
+  string user_id = 1; // required
+  string name = 2; // optional
+  string email = 3;
+  int32 age = 4;
+}
+
+message DeleteUserRequest {
+  string user_id = 1;
+}
+
+message UserResponse {
+  string user_id = 1;
+  string name = 2;
+  string email = 3;
+  int32 age = 4;
+}

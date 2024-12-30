@@ -3,4 +3,4 @@ defaultPackage: sf
 testFramework: junit
 sourceLanguage: kotlin
 buildTool: maven
-features: [app-name, discovery-core, grpc, http-client-test, junit, kapt, kotlin, kotlin-application, logback, maven, maven-enforcer-plugin, properties, readme, serialization-jackson, shade]
+features: [ app-name, discovery-core, grpc, http-client-test, junit, kapt, kotlin, kotlin-application, logback, maven, maven-enforcer-plugin, properties, readme, serialization-jackson, shade ]

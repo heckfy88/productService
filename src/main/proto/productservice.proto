@@ -2,19 +2,38 @@ syntax = "proto3";
 
 option java_multiple_files = true;
 option java_package = "sf";
-option java_outer_classname = "Productservice";
 option objc_class_prefix = "HLW";
 
 package sf;
 
-service ProductserviceService {
-  rpc send (ProductserviceRequest) returns (ProductserviceReply) {}
+service ProductService {
+  rpc place(PlaceProductRequest) returns (ProductResponse);
+  rpc move(MoveProductRequest) returns (ProductResponse);
+  rpc get(GetProductRequest) returns (ProductResponse);
 }
 
-message ProductserviceRequest {
-  string name = 1;
+message PlaceProductRequest {
+  string user_id = 1;
+  string product_id = 2;
+  string storage_id = 3;
+  int32 cell_id = 4;
 }
 
-message ProductserviceReply {
-  string message = 1;
+message MoveProductRequest {
+  string user_id = 1;
+  string product_id = 2;
+  string storage_id = 3;
+  int32 from_cell_id = 4;
+  int32 to_cell_id = 5;
+}
+
+message GetProductRequest {
+  string user_id = 1;
+  string product_id = 2;
+  string storage_id = 3;
+  int32 cell_id = 4;
+}
+
+message ProductResponse {
+  string product_id = 1;
 }
